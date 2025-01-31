@@ -58,7 +58,7 @@ export default function DashboardPage() {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/api/encuestas", {
+      const response = await fetch("http://localhost:3000/api/encuestas", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -221,7 +221,7 @@ export default function DashboardPage() {
 
                 <div className="mt-6 flex items-center justify-end space-x-3">
                   <Button variant="outline" size="sm" asChild>
-                    <Link href={`/surveys/${survey.id}`}>View Results</Link>
+                    <Link href={`/surveys/stats/${survey.id}`}>View Results</Link>
                   </Button>
                   <Button size="sm" asChild>
                     <Link href={`/surveys/${survey.id}/edit`}>Edit Survey</Link>
