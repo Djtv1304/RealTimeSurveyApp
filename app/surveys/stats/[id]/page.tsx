@@ -93,24 +93,24 @@ export default function StatsPage({ params }: { params: { id: string } }) {
                 <h3 className="text-lg font-semibold mb-4">{question.titulo}</h3>
                 <div className="h-[300px]">
                   <p className="mb-2 text-center">Total Votes</p>
-                  <ResponsiveContainer width="100%" height="100%">
+                    <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={question.opciones}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="texto" />
-                      <YAxis />
+                      <CartesianGrid strokeDasharray="3 3" stroke="#FFFFFF" />
+                      <XAxis dataKey="texto" stroke="#FFFFFF" tick={{ fill: '#FFFFFF' }} />
+                      <YAxis stroke="#FFFFFF" tick={{ fill: '#FFFFFF' }} />
                       <Tooltip />
                       <Bar
-                        dataKey="votos"
-                        fill={COLORS[0]} // Color más visible
-                        barSize={30}
-                        isAnimationActive={false} // Para evitar animación al actualizar
+                      dataKey="votos"
+                      fill={COLORS[0]} // Color más visible
+                      barSize={30}
+                      isAnimationActive={false} // Para evitar animación al actualizar
                       >
-                        {question.opciones.map((index: number) => (
-                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
+                      {question.opciones.map((_: any, index: number) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[Math.floor(Math.random() * COLORS.length)]} />
+                      ))}
                       </Bar>
                     </BarChart>
-                  </ResponsiveContainer>
+                    </ResponsiveContainer>
                 </div>
               </Card>
             ))
