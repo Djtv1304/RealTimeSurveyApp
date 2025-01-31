@@ -28,6 +28,7 @@ export default function StatsPage({ params }: { params: { id: string } }) {
 
     eventSource.onerror = (error) => {
       console.error("Error en la conexión SSE", error);
+      console.error("Mensaje de error:", error.type);
       eventSource.close();
     };
 
